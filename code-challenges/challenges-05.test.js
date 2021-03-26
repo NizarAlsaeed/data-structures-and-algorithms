@@ -27,7 +27,7 @@ let starWarsPeople = [
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
   let ans=[];
-  ans= starWarsArr.sort((a,b)=>-a.height+b.height);
+  ans= starWarsArr.sort((a,b)=>parseInt(b.height)-parseInt(a.height));
   return ans;
 }
 
@@ -70,7 +70,7 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i <= str.length; i++) {
     result.push(str.substring(i));
   }
   return result;
@@ -134,7 +134,10 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.slice();
+  const regex=/[0-9]+.\w+(\s|.\w+\s)/
+    recipe.ingredients.forEach(str=>{
+      result.push(str.slice((str.match(regex)[0].length)));
+    });
   return result;
 };
 
@@ -301,6 +304,7 @@ describe('Testing challenge 6', () => {
 
 xdescribe('Testing challenge 7', () => {
   test('It should return a list of foods', () => {
+    
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
 });
