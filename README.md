@@ -17,3 +17,4 @@ class | challenge
 ------|-----------
 01    | [array-reverse](python/code_challenges/array_reverse)
 02    | [array-shift](python/code_challenges/array_shift)
+03    | [array-binary-search](python/code_challenges/array_binary_search)
