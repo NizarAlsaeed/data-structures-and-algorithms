@@ -13,7 +13,7 @@ return -1 if the element does not exist.
 -   put the smaller value first
 -   find length of list:
 -   point to middle and compare:
--   if smaller split to the left and again point to middle.
+-   if smaller take one half and again point to middle.
 -   redo untill find the value OR untill len(list)=1
 -   return index Or -1
 

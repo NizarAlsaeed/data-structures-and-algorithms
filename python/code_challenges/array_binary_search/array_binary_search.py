@@ -6,20 +6,19 @@ def BinarySearch(input_list:list, search_key)->int:
     or
     return -1 if the element does not exist.
     """
-    sorted_list = sort_list(input_list)
-    while len(sorted_list) >=1:
-        middle_index = math.ceil(len(sorted_list)/2)
-        if search_key == sorted_list[middle_index]:
-            return middle_index
-        elif search_key > sorted_list[middle_index]:
-            sorted_list = sorted_list[middle_index+1:]
-            continue
+    input_list = sort_list(input_list)
+
+    first_index = 0
+    last_index = len(input_list)-1
+    while first_index != last_index:
+        middle = math.ceil((first_index + last_index) / 2)
+        if input_list[middle] > search_key:
+            last_index = middle - 1
         else:
-            sorted_list = sorted_list[:middle_index]
-    if sorted_list and (sorted_list[0] == search_key):
-        return sorted_list[0]
-    else:
-        return -1
+            first_index = middle
+    if input_list[first_index] == search_key:
+        return first_index
+    return -1
 
 def sort_list(input_list:list)->list:
     holder = 0
