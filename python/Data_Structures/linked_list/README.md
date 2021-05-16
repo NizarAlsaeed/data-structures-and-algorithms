@@ -26,6 +26,17 @@ LinkedList must contain:
 
 BigO => Time O(N) | space O(1)
 
-## Solution
-![img](../..//assets/linked_list.png)
+## API
+<!-- Description of each method publicly available to your Linked List -->
 
+**insert_method:**
+
+insert into the linked list
+
+**includes method:**
+
+checks if a value is in the linked list
+
+**__str__**
+
+return a collection of all the values that exist in the linked list
