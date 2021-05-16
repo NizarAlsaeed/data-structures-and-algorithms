@@ -18,4 +18,5 @@ class | challenge
 01    | [array-reverse](python/code_challenges/array_reverse)
 02    | [array-shift](python/code_challenges/array_shift)
 03    | [array-binary-search](python/code_challenges/array_binary_search)
-04    | [linked-list](python/Data_Structures/linked_list)
+05    | [linked-list](python/Data_Structures/linked_list)
+06    | [ll-insertion](python/Data_Structures/linked_list)

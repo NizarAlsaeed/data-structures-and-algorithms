@@ -55,6 +55,63 @@ def test_all_values(an_instance,add_2testing_nodes):
     assert actual == expected
 
 
+def test_append(an_instance):
+    """
+    Can successfully add a node to the end of the linked list
+    """
+    an_instance.append('test')
+    actual = an_instance.includes('test')
+    expected = True
+    assert actual == expected
+
+def test_multiple_append(an_instance):
+    """
+    Can successfully add multiple nodes to the end of a linked list
+    """
+    an_instance.append('test_one')
+    an_instance.append('test_two')
+    actual = an_instance.includes('test_one') and an_instance.includes('test_two')
+    expected = True
+    assert actual == expected
+
+def test_insert_before(an_instance,add_2testing_nodes):
+    """
+    Can successfully insert a node before a node located i the middle of a linked list
+    """
+    an_instance.insertBefore('test-two','new-test')
+    actual = an_instance.__str__()
+    expected = '{test-one} -> {new-test} -> {test-two} -> None'
+    assert actual == expected
+
+def test_insert_before_first_node(an_instance,add_2testing_nodes):
+    """
+    Can successfully insert a node before the first node of a linked list
+    """
+    an_instance.insertBefore('test-one','new-test')
+    actual = an_instance.__str__()
+    expected = '{new-test} -> {test-one} -> {test-two} -> None'
+    assert actual == expected
+
+
+def test_insert_after(an_instance,add_2testing_nodes):
+    """
+    Can successfully insert after a node in the middle of the linked list
+    """
+    an_instance.insertAfter('test-one','new-test')
+    actual = an_instance.__str__()
+    expected = '{test-one} -> {new-test} -> {test-two} -> None'
+    assert actual == expected
+
+def test_insert_after_last_node(an_instance,add_2testing_nodes):
+    """
+    Can successfully insert a node after the last node of the linked list
+    """
+    an_instance.insertAfter('test-two','new-test')
+    actual = an_instance.__str__()
+    expected = '{test-one} -> {test-two} -> {new-test} -> None'
+    assert actual == expected
+
+
 
 @pytest.fixture
 def an_instance():
