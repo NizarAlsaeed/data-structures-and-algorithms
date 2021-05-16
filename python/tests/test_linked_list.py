@@ -66,5 +66,5 @@ def add_testing_node(an_instance):
 
 @pytest.fixture
 def add_2testing_nodes(an_instance):
-    an_instance.insert('test-one')
     an_instance.insert('test-two')
+    an_instance.insert('test-one')

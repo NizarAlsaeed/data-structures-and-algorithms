@@ -8,16 +8,12 @@ class Node:
 class Linked_list:
   def __init__(self):
     self.head = None
-  def insert  (self, value):
+
+  def insert (self, value=None):
     new_node = Node(value)
     if self.head :
-      current = self.head
-      while (current.next):
-        current = current.next # point to the next node
-
-      current.next = new_node
-    else:
-      self.head = new_node
+        new_node.next = self.head
+    self.head = new_node
 
   def includes (self,value)->bool:
         if self.head :
