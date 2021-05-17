@@ -20,3 +20,5 @@ class | challenge
 03    | [array-binary-search](python/code_challenges/array_binary_search)
 05    | [linked-list](python/Data_Structures/linked_list)
 06    | [ll-insertion](python/Data_Structures/linked_list)
+07    | [ll-kth-from-end](python/Data_Structures/linked_list)
+
