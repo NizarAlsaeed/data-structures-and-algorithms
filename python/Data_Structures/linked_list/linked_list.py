@@ -49,16 +49,35 @@ class Linked_list:
             break
         current = current.next
 
+  def kthFromEnd(self,k:int):
+    """Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
+    """
+    length = 0
+    current = self.head
+    while(current):
+        length += 1
+        current = current.next
+    if k >= length or k < 0:
+        return 'IndexError'
+
+    current = self.head
+    for i in range(0,length-k):
+        if i== length-k-1:
+            return current.value
+            break
+        current = current.next
+
+
   def includes (self,value)->bool:
-        if self.head :
-            current = self.head
-            while current:
-                if current.value == value:
-                    return True
-                current = current.next
-            return False
-        else:
-            return False
+    if self.head :
+        current = self.head
+        while current:
+            if current.value == value:
+                return True
+            current = current.next
+        return False
+    else:
+        return False
 
 
   def __str__(self):
@@ -74,3 +93,10 @@ class Linked_list:
   def __repr__(self):
       return 'a linked_list instance'
 
+
+
+if __name__ == '__main__':
+    ll = Linked_list()
+    for i in range(1,10):
+        ll.append(i)
+    print(ll.kthFromEnd(4))

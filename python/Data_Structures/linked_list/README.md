@@ -1,75 +1,41 @@
 
 # Challenge Summary
 <!-- Description of the challenge -->
-Extend a Linked List to allow various insertion methods.
-Write the following methods for the Linked List class:
+k-th value from the end of a linked list.
 
-`.append(value)` which adds a new node with the given value to the end of the list.
-
-`.insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node.
-
-`.insertAfter(value, newVal)` which add a new node with the given newValue immediately after the first value node.
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![img](../../assets/linked_list.png)
+![img](../../assets/kthFromEnd.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-**append:
-- create node instance
-- loop untill last node
-- assign current.next = new node
 
-**insert before:
-- create new node
-- if value is not head:
-- loop through nodes:
-- if next value = intended node value:
-- point next node to the new node
-- assign current.next = new node
-
-** insert after:
-- the same for insert before except
-that we check for current node value
-to be as the intended value
+- calculate the length of the linked list by:
+looping through th list and countng items
+- looping untill iteration == length -k -1
+where k is the k-th value from the end of a linked list.
+- return current.value
 
 
 BigO => Time O(N) | space O(1)
 
-
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-
-#### getting started:
 clone the repo `git clone https://github.com/NizarAlsaeed/data-structures-and-algorithms.git`
 
 change directory `cd python/Data_Structures/linked_list`
 
 open linked_list.py
 
-create new instance `linked_list = Linked_list()`
+run the file
+```python
+ll = Linked_list()
+for i in range(1,10):
+    ll.append(i)
+print(ll.kthFromEnd(4))
 
-add some data
-```
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-```
-
-print the linked list visualization
-```
-print(linked_list.__str__())
-
-# output:
-# {1} -> {2} -> {3} -> None
-```
-
-try the available methods, such as `.insertAfter`:
-```
-linked_list.insertAfter(3,4)
-
-# output:
-# {1} -> {2} -> {3} -> {4} -> None
+#>>> 5
 ```

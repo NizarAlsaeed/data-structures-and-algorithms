@@ -113,6 +113,29 @@ def test_insert_after_last_node(an_instance,add_2testing_nodes):
 
 
 
+def test_kthFromEnd(an_instance,add_2testing_nodes, list_of_kths):
+    """
+    Where k is greater than the length of the linked list
+    Where k and the length of the list are the same
+    Where k is not a positive integer
+    “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    """
+
+    actual = [an_instance.kthFromEnd(i) for i in list_of_kths]
+    expected = ['IndexError','IndexError','IndexError','test-one', 'test-two' ]
+    assert actual == expected
+
+
+def test_kthFromEnd2(an_instance,add_testing_node ):
+    """
+    Where the linked list is of a size 1
+    """
+    actual = an_instance.kthFromEnd(0)
+    expected = 'test'
+    assert actual == expected
+
+
+
 @pytest.fixture
 def an_instance():
     return Linked_list()
@@ -125,3 +148,7 @@ def add_testing_node(an_instance):
 def add_2testing_nodes(an_instance):
     an_instance.insert('test-two')
     an_instance.insert('test-one')
+
+@pytest.fixture
+def list_of_kths():
+    return [-1, 2, 3, 1, 0]
