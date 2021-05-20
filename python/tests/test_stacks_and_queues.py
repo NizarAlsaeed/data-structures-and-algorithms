@@ -1,12 +1,6 @@
 import pytest
 from Data_Structures.stacks_and_queues.stacks_and_queues import Stack, Queue
-"""
 
-    Calling pop or peek on empty stack raises exception
-
-    Calling dequeue or peek on empty queue raises exception
-
-"""
 def test_stack_init():
     """Can successfully instantiate an empty stack"""
     stack = Stack()
@@ -36,9 +30,27 @@ def test_stack_pop(stack_instance,stack_2testing_nodes):
     expected = None
     assert actual == expected
 
-def test_stack_peek():
+def test_stack_peek(stack_instance,stack_testing_node):
     """Can successfully peek the next item on the stack"""
-    pass
+    actual = stack_instance.peek()
+    expected = 'test'
+    assert actual == expected
+
+
+def test_stack_exception(stack_instance):
+    """Calling pop or peek on empty stack raises exception"""
+    with pytest.raises(Exception) as exc_info:
+        actual = stack_instance.pop()
+    actual = str(exc_info.value)
+    expected = 'Cannot pop an empty Stack'
+    assert actual == expected
+
+    with pytest.raises(Exception) as exc_info:
+        actual = stack_instance.peek()
+    actual = str(exc_info.value)
+    expected = 'Cannot peek an empty Stack'
+    assert actual == expected
+
 
 
 def test_queue_init():
@@ -49,24 +61,43 @@ def test_queue_init():
     assert actual == expected
 
 
-
-def test_queue_enqueue():
+def test_queue_enqueue(queue_instance):
     """    Can successfully enqueue into a queue
     Can successfully enqueue multiple values into a queue"""
-    pass
+    queue_instance.enqueue('test-one')
+    queue_instance.enqueue('test-two')
+    actual = queue_instance.__str__()
+    expected = 'test-one | test-two | '
+    assert actual == expected
 
-def test_queue_dequeue():
+def test_queue_dequeue(queue_instance, queue_2testing_nodes):
     """    Can successfully dequeue out of a queue the expected value
     Can successfully empty a queue after multiple dequeues"""
-    pass
+    queue_instance.dequeue()
+    queue_instance.dequeue()
+    actual = queue_instance.front
+    expected = None
+    assert actual == expected
 
-def test_queue_peek():
+def test_queue_peek(queue_instance, queue_testing_node):
     """Can successfully peek into a queue, seeing the expected value"""
-    pass
+    actual = queue_instance.peek()
+    expected = 'test'
+    assert actual == expected
 
+def test_queue_exception(queue_instance):
+    """Calling dequeue or peek on empty queue raises exception"""
+    with pytest.raises(Exception) as exc_info:
+        actual = queue_instance.dequeue()
+    actual = str(exc_info.value)
+    expected = 'Cannot dequeue an empty Queue'
+    assert actual == expected
 
-
-
+    with pytest.raises(Exception) as exc_info:
+        actual = queue_instance.peek()
+    actual = str(exc_info.value)
+    expected = 'Cannot peek an empty Queue'
+    assert actual == expected
 
 
 

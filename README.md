@@ -21,4 +21,5 @@ class | challenge
 05    | [linked-list](python/Data_Structures/linked_list)
 06    | [ll-insertion](python/Data_Structures/linked_list)
 07    | [ll-kth-from-end](python/Data_Structures/linked_list)
-
+08    | [ll_zip](python/code_challenges/ll_zip)
+09    | [stacks_and_queues](python/Data_Structures/stacks_and_queues)

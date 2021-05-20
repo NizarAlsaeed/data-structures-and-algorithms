@@ -25,7 +25,7 @@ class Stack:
             self.top = self.top.next
             temp_node.next = None
             return temp_node.value
-        raise Exception("Cannot peek an empty stack")
+        raise Exception("Cannot pop an empty Stack")
 
     def is_empty(self):
         """Returns True if Empty and false otherwise"""
@@ -38,7 +38,7 @@ class Stack:
         if not self.is_empty():
             return self.top.value
 
-        raise Exception("Cannot peek an empty stack")
+        raise Exception("Cannot peek an empty Stack")
 
     def __str__(self):
         current = self.top
@@ -73,7 +73,7 @@ class Queue:
             self.front = self.front.next
             temp_node.next = None
             return temp_node.value
-        raise Exception("Cannot peek an empty Queue")
+        raise Exception("Cannot dequeue an empty Queue")
 
     def is_empty(self):
         """Returns True if Empty and false otherwise"""
@@ -86,7 +86,7 @@ class Queue:
         if not self.is_empty():
             return self.front.value
 
-        raise Exception("Cannot peek an empty stack")
+        raise Exception("Cannot peek an empty Queue")
 
     def __str__(self):
         current = self.front
@@ -96,14 +96,3 @@ class Queue:
             current = current.next
         return output
 
-
-
-if __name__ == "__main__":
-    queue = Queue()
-    stack = Stack()
-    stack.push('test-one')
-    stack.push('test-two')
-    print(stack)
-    print(queue)
-    # queue.dequeue()
-    print(queue)
