@@ -1,37 +1,39 @@
-# Trees
-<!-- Short summary or background information -->
-Trees are special data structur from graphs. In this challenge, we are using binary trees, for each node in these trees they have exactly two child-nodes untill the leaf node.
-
-## Challenge
+# Challenge Summary
 <!-- Description of the challenge -->
-Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+**Find the Maximum Value in a Binary Tree.**
 
+Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![img](../../assets/tree-max.png)
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-for depth first traversals we applies recursive methods for the `preOrder`, `inOrder`, and, `postOrder`. and for the `add` method we also used recursive method to insert the new nodes to their proper place. And for the `contains` method we applied the iteratve method
+- using preOrder depth first traversal
+- initialize - infinity variable
+-  traverse to the next node
+- compare each node value f its greater than the variable
+- assgn the greater value
+- return the variable value after traversla ends
 
+space: BigO(1) | time BigO(n)
 
-BinarySearchTree:
-- `contains`: space --> BigO(1) | time  --> BigO(height)
-- `add`: space --> BigO(1) | time  --> BigO(n)
-## API
-<!-- Description of each method publicly available in each of your trees -->
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
+```python
+    abs_root = Node_BT(2)
 
- ```python
+    abs_root.left = Node_BT(7)
+    abs_root.right = Node_BT(5)
 
-    # the same tree but the order of the returned node is different for each method
-    preOrder(self):
-        """depth first traversals"""
-    preOrder(self):
-        """depth first traversals"""
-    preOrder(self):
-        """depth first traversals"""
+    abs_root.left.left = Node_BT(2)
+    abs_root.left.right = Node_BT(6)
 
-    add (self, value):
-    """adds a new node with that value in the correct location in the binary search tree."""
+    abs_root.right.right = Node_BT(9)
+    binary_tree = BinaryTree(abs_root)
+    print(binary_tree.find_maximum_value())
 
-    contains (self, value):
-    """returns a boolean indicating whether or not the value is in the tree at least once."""
-
-
+# output
+>>> 9
 ```
+
