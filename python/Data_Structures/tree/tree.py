@@ -70,6 +70,24 @@ class  BinaryTree:
         else:
             raise Exception('The tree is empty')
 
+    def find_maximum_value(self):
+        """ return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric."""
+        ans= float('-inf')
+        if self.root is not None:
+            def _max(node):
+                nonlocal ans
+                if node.value > ans:
+                    ans = node.value
+                if node.left:
+                    _max(node.left)
+                if node.right:
+                    _max(node.right)
+
+            _max(self.root)
+            return ans
+        else:
+            raise Exception('The tree is empty')
+
     def __str__(self):
         """the default is to print the preOrder list"""
         return self.preOrder()
@@ -122,17 +140,18 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__=='__main__':
-    abs_root = Node_BT('a')
+    abs_root = Node_BT(2)
 
-    abs_root.left = Node_BT('b')
-    abs_root.right = Node_BT('c')
+    abs_root.left = Node_BT(7)
+    abs_root.right = Node_BT(5)
 
-    abs_root.left.left = Node_BT('d')
-    abs_root.left.right = Node_BT('e')
+    abs_root.left.left = Node_BT(2)
+    abs_root.left.right = Node_BT(6)
 
-    abs_root.right.left = Node_BT('f')
-
+    abs_root.right.right = Node_BT(9)
     binary_tree = BinaryTree(abs_root)
+    print(binary_tree.find_maximum_value())
+    print('------------------------------------')
     binary_tree.preOrder()
     print('--pre')
     binary_tree.inOrder()
