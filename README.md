@@ -25,4 +25,5 @@ class | challenge
 09    | [stacks_and_queues](python/Data_Structures/stacks_and_queues)
 12    | [fifo_animal_shelter ](python/code_challenges/fifo_animal_shelter)
 13    | [multi_bracket_validation](python/code_challenges/multi_bracket_validation)
-13    | [tree](python/Data_Structures/tree)
+15    | [tree](python/Data_Structures/tree)
+17    | [tree/breadth-first](python/Data_Structures/tree)

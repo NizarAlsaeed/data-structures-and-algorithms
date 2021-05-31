@@ -70,6 +70,21 @@ class  BinaryTree:
         else:
             raise Exception('The tree is empty')
 
+    def breadth_first(self)->list:
+        """ takes a Binary Tree as its unique input, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered. """
+        frontier = Queue()
+        frontier.enqueue(self.root)
+        explored = []
+        current = None
+        while not frontier.is_empty():
+            current = frontier.dequeue()
+            explored.append(current.value)
+            if current.left:
+                frontier.enqueue(current.left)
+            if current.right:
+                frontier.enqueue(current.right)
+        return explored
+
     def find_maximum_value(self):
         """ return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric."""
         ans= float('-inf')
@@ -149,20 +164,19 @@ if __name__=='__main__':
     abs_root.left.right = Node_BT(6)
 
     abs_root.right.right = Node_BT(9)
+
+    abs_root.left.right.left = Node_BT(5)
+    abs_root.left.right.right = Node_BT(11)
+
+    abs_root.right.right.right = Node_BT(4)
+
     binary_tree = BinaryTree(abs_root)
+    print(binary_tree.breadth_first())
+
     print(binary_tree.find_maximum_value())
-    print('------------------------------------')
-    binary_tree.preOrder()
-    print('--pre')
-    binary_tree.inOrder()
-    print('--in')
-    binary_tree.postOrder()
-    print('--post')
+    print(binary_search_tree.contains(15))
 
     binary_search_tree = BinarySearchTree(Node_BT(23))
     binary_search_tree.add(15)
     binary_search_tree.add(4)
     binary_search_tree.add(90)
-
-    binary_search_tree.preOrder()
-    print(binary_search_tree.contains(15))

@@ -46,9 +46,35 @@ def test_max_value(ex_instance):
     assert actual == expected
 
 
+def test_breadth_first(breadth_instance):
+    """    Can successfully return the traversed list of breadth first"""
+    actual = breadth_instance.breadth_first()
+    expected = [2, 7, 5, 2, 6, 9, 5, 11, 4]
+    assert actual == expected
+
 @pytest.fixture
 def ex_instance():
     binary_tree = BinarySearchTree(Node_BT(2))
     binary_tree.add(1)
     binary_tree.add(3)
+    return binary_tree
+
+@pytest.fixture
+def breadth_instance():
+    abs_root = Node_BT(2)
+
+    abs_root.left = Node_BT(7)
+    abs_root.right = Node_BT(5)
+
+    abs_root.left.left = Node_BT(2)
+    abs_root.left.right = Node_BT(6)
+
+    abs_root.right.right = Node_BT(9)
+
+    abs_root.left.right.left = Node_BT(5)
+    abs_root.left.right.right = Node_BT(11)
+
+    abs_root.right.right.right = Node_BT(4)
+
+    binary_tree = BinaryTree(abs_root)
     return binary_tree
