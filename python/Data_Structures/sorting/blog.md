@@ -52,6 +52,8 @@ from the fifth iteration to the last item in the array, the process is repeated 
 
 
 as seen below, the array is sorted correctly after the 8th iteration.
+
+
 ![img](../../assets/sorting/sorting9.png)
 
 
