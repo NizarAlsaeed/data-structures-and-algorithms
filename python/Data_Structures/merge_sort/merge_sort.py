@@ -38,5 +38,5 @@ def merge(left:list, right:list, arr:list):
       k=k+1
     return arr
 
-if __name=='__main__':
+if __name__=='__main__':
     print(mergesort([8,4,23,42,16,15]))
