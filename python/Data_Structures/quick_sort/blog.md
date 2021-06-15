@@ -5,37 +5,37 @@ it is a popular and very useful sorting algorithm, it's idea is to pick up a ran
 ### step1:
 first of all, we will arbitrarily choose the last item in the array as the pivot.
 
-![img](../../assets/qsort1.png)
+![img](../../assets/quick_sort/qsort1.png)
 
 ### step2:
 then, we compare the other values with the pivot and place whatever is lower than it to the left in a new array and the greater values o the right as shown below.
 
-![img](../../assets/qsort2.png)
+![img](../../assets/quick_sort/qsort2.png)
 
 ### step3:
 repeat the process again on the left and right arrays
 
-![img](../../assets/qsort3.png)
+![img](../../assets/quick_sort/qsort3.png)
 
 ### step4:
 
-![img](../../assets/qsort4.png)
+![img](../../assets/quick_sort/qsort4.png)
 
 ### step5:
 now we move to the back by combining the left and right values to the pivot as shown on the following steps.
 
-![img](../../assets/qsort5.png)
+![img](../../assets/quick_sort/qsort5.png)
 
 ### step6:
-![img](../../assets/qsort6.png)
+![img](../../assets/quick_sort/qsort6.png)
 
 ### step7:
-![img](../../assets/qsort7.png)
+![img](../../assets/quick_sort/qsort7.png)
 
 ### step8:
 and we are done, the array is now correctly sorted.
 
-![img](../../assets/qsort8.png)
+![img](../../assets/quick_sort/qsort8.png)
 
 
 ## run-time:
