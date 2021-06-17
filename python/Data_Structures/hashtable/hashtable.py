@@ -31,16 +31,13 @@ class Hash_table:
                 if current.value[0] == key:
                     return current.value[1]
                 current = current.next
-        raise ValueError('Key not found')
+        return None
 
     def contains(self, key) -> bool:
         """takes in the key and returns a boolean, indicating if the key exists in the table already."""
-        try:
-            self.get(key)
-        except:
-            return False
-        else:
+        if self.get(key):
             return True
+        return False
 
 
 if __name__ == '__main__':
