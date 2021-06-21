@@ -5,8 +5,11 @@ Find common values in 2 binary trees.
 
 """
 Algorithm:
-- 
-
+- traverse in both trees using preOrder
+- looping through the second list representing the second binary tree
+- checkng if value is not in the first list
+- replace the value with empty string 
+- return the seond list
 """
 
 def tree_intersection(btree_one, btree_two)->list:
@@ -14,10 +17,12 @@ def tree_intersection(btree_one, btree_two)->list:
     takes two binary tree parameters.
     Without utilizing any of the built-in library methods available to your language,
     return a set of values found in both trees."""
-    
-    
-    
-    return common_values
+    t1l = btree_one.preOrder()
+    t2l = btree_two.preOrder()
+    for i,value in enumerate(t2l):
+        if not value in t1l:
+            t2l[i] = ''
+    return t2l
 
 if __name__=='__main__':
     # first binary tree
@@ -57,3 +62,4 @@ if __name__=='__main__':
     bt2.root.right.right.right = Node_BT(500)
 
     print(bt1.preOrder(),bt2.preOrder())
+    print(tree_intersection(bt1,bt2))
