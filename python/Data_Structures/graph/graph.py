@@ -29,9 +29,13 @@ class Graph:
             Adds a new edge between two nodes in the graph
             If specified, assign a weight to the edge
             Both nodes should already be in the Graph """
-        new_edge = Edge(starting_node, ending_node, weight=weight)
-        self._adjacency_list.get(starting_node).append((new_edge.ending_node.value,weight))
-        self._adjacency_list.get(ending_node).append((new_edge.starting_node.value,weight))
+        if starting_node in self._adjacency_list.keys() and ending_node in self._adjacency_list.keys():
+            new_edge = Edge(starting_node, ending_node, weight=weight)
+            self._adjacency_list.get(starting_node).append((new_edge.ending_node.value,weight))
+            if starting_node != ending_node:
+                self._adjacency_list.get(ending_node).append((new_edge.starting_node.value,weight))
+        else:
+            raise ValueError('One of the Nodes does not exist in the graph')
 
     def get_nodes(self):
         """ Arguments: none
@@ -42,8 +46,10 @@ class Graph:
         """ Arguments: node
             Returns a collection of edges connected to the given node
             Include the weight of the connection in the returned collection """
-        print('[(node, weight),(node, weight),...]')
-        return self._adjacency_list.get(node)
+        if node in self._adjacency_list.keys():
+            return self._adjacency_list.get(node)
+        else:
+            raise ValueError('Node does not exist in the graph')
 
     def size(self):
         """ Arguments: none
@@ -54,8 +60,8 @@ if __name__ == '__main__':
     graph = Graph()
     node1 = graph.add_node(1)
     node2 = graph.add_node(2)
-
+    node3 = graph.add_node(3)
     graph.add_edge(node1, node2, 10)
-    # print(graph.get_nodes())
-    # print(graph.get_neighbors(node2))
+    print(graph.get_nodes())
+    print(graph.get_neighbors(node2))
     print(graph.size())
