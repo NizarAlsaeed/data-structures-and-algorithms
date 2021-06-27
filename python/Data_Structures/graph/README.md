@@ -15,6 +15,7 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 - size
 
+- breadth first
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -23,16 +24,27 @@ Implemented graph using adjacency list representation
 ## API
 <!-- Description of each method publicly available in your Graph -->
 ```python
+# breadth first search
 graph = Graph()
-node1 = graph.add_node(1)
-node2 = graph.add_node(2)
-node3 = graph.add_node(3)
-graph.add_edge(node1, node2, 10)
-print(graph.get_nodes())
-print(graph.get_neighbors(node3))
-print(graph.size())
+node1 = graph.add_node("pandora")
+node2 = graph.add_node("Arendelle")
+graph.add_edge(node1, node2)
+node3 = graph.add_node("Metroville")
+node4 = graph.add_node("Monstropolis")
+graph.add_edge(node2, node3)
+graph.add_edge(node2, node4)
+graph.add_edge(node3, node4)
+node5 = graph.add_node("Narnia")
+node6 = graph.add_node("Naboo")
+graph.add_edge(node3, node5)
+graph.add_edge(node3, node6)
+graph.add_edge(node4, node6)
+graph.add_edge(node5, node6)
 
->> [1, 2, 3]
-   [(1, 10)]
-   3
+>>pandora
+  Arendelle
+  Metroville
+  Monstropolis
+  Narnia
+  Naboo
 ```
