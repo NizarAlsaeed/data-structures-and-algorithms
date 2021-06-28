@@ -1,50 +1,24 @@
-# Graphs
-<!-- Short summary or background information -->
-A Graph is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
-## Challenge
+# Challenge Summary
 <!-- Description of the challenge -->
-Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
-
-- add node
-
-- add edge
-
-- get nodes
-
-- get neighbors
-
-- size
-
-- breadth first
-
+Determine whether the trip is possible with direct flights, and how much it would cost.
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![img](../../assets/business_trip.png)
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+possible with direct flights?
 
-Implemented graph using adjacency list representation
-## API
-<!-- Description of each method publicly available in your Graph -->
-```python
-# breadth first search
-graph = Graph()
-node1 = graph.add_node("pandora")
-node2 = graph.add_node("Arendelle")
-graph.add_edge(node1, node2)
-node3 = graph.add_node("Metroville")
-node4 = graph.add_node("Monstropolis")
-graph.add_edge(node2, node3)
-graph.add_edge(node2, node4)
-graph.add_edge(node3, node4)
-node5 = graph.add_node("Narnia")
-node6 = graph.add_node("Naboo")
-graph.add_edge(node3, node5)
-graph.add_edge(node3, node6)
-graph.add_edge(node4, node6)
-graph.add_edge(node5, node6)
+ans: if node is neighbor of next node in the trip
 
->>pandora
-  Arendelle
-  Metroville
-  Monstropolis
-  Narnia
-  Naboo
-```
+how much it would cost?
+
+ans: sum of edges weights
+
+using graph get_neighbour method which returns a list of tuples for the neighbor node and the weight of the edge.
+
+we will check if the next city in the input is a neighbour for the previous city, and then add the weight to the sum variable that will be returned at the end.
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
+n: trip list length
+m: neighbours list length
+Big O(nxm)
