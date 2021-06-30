@@ -58,6 +58,10 @@ def test_bfs(graph_instance2,capsys):
     ]
     assert actual == expected
 
+def test_dfs(graph_instance2):
+    actual = graph_instance2[0].depth_first()
+    expected = ['pandora', 'Arendelle', 'Metroville', 'Monstropolis', 'Naboo', 'Narnia']
+    assert actual == expected
 
 @pytest.fixture
 def graph_instance():

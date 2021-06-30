@@ -75,6 +75,34 @@ class Graph:
                     action(node[0].value)
                     frontier.append(node[0])
 
+    def depth_first(self)->list:
+        """ Arguments: An adjacency list as a graph
+            Return: A collection of nodes in their pre-order depth-first traversal order
+            Display the collection """
+        frontier = deque()
+        explored = set()
+        root_node = list(self._adjacency_list.keys())[0]
+        ans = [root_node.value]
+        frontier.append(root_node)
+        while len(frontier):
+            visited_childs = False
+            current = frontier[-1]
+            explored.add(current)
+            neighbors = self.get_neighbors(current)
+
+            for node in neighbors:
+                if (node[0] not in frontier) and (node[0] not in explored):
+                    visited_childs = True
+                    frontier.append(node[0])
+                    explored.add(node[0])
+                    ans.append(node[0].value)
+            if visited_childs == False:
+                frontier.pop()
+        return ans
+
+    def __str__(self):
+        return str(self._adjacency_list)
+
 if __name__ == '__main__':
     graph = Graph()
     node1 = graph.add_node("pandora")
@@ -94,4 +122,5 @@ if __name__ == '__main__':
     # print(graph.get_nodes())
     # print(graph.get_neighbors(node4))
     # print(graph.size())
-    print(graph.breadth_first(node1))
+    # print(graph)
+    print(graph.depth_first())
